@@ -33,12 +33,16 @@ a {
 @keyframes fadeIn {
     0% {
         opacity: 0;
+        transform: translateY(20px);
     }
 
     100% {
         opacity: 1;
+        transform: translateY(0);
     }
 }
+
+
 
 .myShadow {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -57,12 +61,25 @@ a {
         font-size: 7rem;
         color: var(--white-color);
         text-align: center;
+        animation: fadeInH1 1.5s;
     }
 
     @media screen and (max-width: 480px) {
         h1 {
             font-size: 3rem;
         }
+    }
+}
+
+@keyframes fadeInH1 {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -640,3 +657,57 @@ footer {
         color: #cc0615;
     }
 }
+
+
+
+
+
+
+
+main {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    &:before {
+      content: attr(data-info);
+      position: fixed;
+      top: 1rem;
+      font-weight: bold;
+      color: var(--gray);
+    }
+  }
+  
+  .title {
+    font-size: 3rem;
+    overflow: hidden;
+  
+    span {
+      display: inline-block;
+  
+      .animate & {
+        animation: pop-up 1s cubic-bezier(0.2, 0, 0.5, 1) forwards;
+        animation-delay: calc(var(--i) * 0.2s);
+        opacity: 0;
+      }
+    }
+  }
+  
+  @keyframes pop-up {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  
+  /* --------- */
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+  

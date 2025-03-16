@@ -31,3 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
+
+console.clear()
+
+const container = document.querySelector('.container')
+
+container.addEventListener('click', () => {
+  container.classList.remove('animate')
+  setTimeout(() => {
+    container.classList.add('animate')
+  }, 500)
+})
